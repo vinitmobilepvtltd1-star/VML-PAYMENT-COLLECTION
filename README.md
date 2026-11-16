@@ -10,4 +10,4 @@ Vinit Mobile card-machine settlement reconciliation code.
 
 ## Rules
 - This repo is PUBLIC. Never commit statement PDFs, CSVs, card numbers or any credentials.
-- Next step: daily job (Render) that reads the SIB statement mails and runs the parser.
+- `sib/daily_job.py` + `.github/workflows/sib-daily.yml`: roz 2 PM IST par SIB mails padhkar summary email karta hai. Secrets: GMAIL_USER, GMAIL_APP_PASSWORD (GitHub repo Settings > Secrets and variables > Actions).

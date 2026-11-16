@@ -1,0 +1,15 @@
+name: SIB daily statement summary
+on:
+  schedule:
+    - cron: "30 8 * * *"   # roz 2:00 PM IST
+  workflow_dispatch: {}
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: python3 sib/daily_job.py
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
